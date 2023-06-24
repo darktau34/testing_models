@@ -9,7 +9,7 @@ from ultralytics import YOLO
 # https://www.freecodecamp.org/news/how-to-detect-objects-in-images-using-yolov8/#get_started
 
 # model = RTDETR("rtdetr-l.pt")
-# model = YOLO('yolov8n.pt')
+model = YOLO('yolov8n.pt')
 objects_names = {0: 'person', 1: 'bicycle', 2: 'car', 3: 'motorcycle', 4: 'airplane', 5: 'bus', 6: 'train',
                      7: 'truck', 8: 'boat', 9: 'traffic light', 10: 'fire hydrant', 11: 'stop sign',
                      12: 'parking meter', 13: 'bench', 14: 'bird', 15: 'cat', 16: 'dog', 17: 'horse', 18: 'sheep',
@@ -62,7 +62,7 @@ def video_detection(video_path):
     while cap.isOpened():
         ret, frame = cap.read()
         frame = resize_frame(frame)
-        # frame = frames_handler(frame)
+        frame = frames_handler(frame)
         if not ret:
             break
         cv.imshow('Video', frame)
@@ -77,7 +77,7 @@ def video_detection(video_path):
 
 def main():
     video_path = r'video/street.mp4'
-    # video_detection(video_path)
+    video_detection(video_path)
     
 
 
