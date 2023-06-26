@@ -1,0 +1,11 @@
+It means you miss any installation step or it didnt add to your PATH.
+
+check if it is in your PATH by whereis nvcc, if it returns nvcc: then you need to add below two lines in .bashrc
+usually .bashrc file path is like /home/username/.bashrc then add below two lines (change cuda version with installed version)
+export PATH=/usr/local/cuda-11.4/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64:$LD_LIBRARY_PATH
+then save and close the file
+check nvcc --version
+
+
+https://forums.developer.nvidia.com/t/nvdia-smi-show-cuda-version-but-nvcc-not-found/67311/4
