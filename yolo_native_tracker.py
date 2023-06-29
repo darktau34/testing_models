@@ -5,7 +5,7 @@ from supervision.draw.color import ColorPalette
 import time
 
 
-model = YOLO('yolov8s.pt')
+model = YOLO('yolov8m.pt')
 CLASS_NAMES = model.model.names
 box_annotator = BoxAnnotator(color=ColorPalette(), thickness=1, text_thickness=1, text_scale=0.4, text_padding=5)
 
@@ -13,7 +13,7 @@ box_annotator = BoxAnnotator(color=ColorPalette(), thickness=1, text_thickness=1
 def frames_handler(frame):
     # tracker='bytetrack.yaml'
     # tracker='botsort.yaml'
-    results = model.track(source=frame, tracker='botsort.yaml', persist=True)[0]
+    results = model.track(source=frame, tracker='bytetrack.yaml', persist=True)[0]
     detections = Detections(
         xyxy = results.boxes.xyxy.cpu().numpy(),
         confidence= results.boxes.conf.cpu().numpy(),
